@@ -28,6 +28,7 @@ Student council elections in many colleges are still run with paper forms, sprea
 
 | Day   | Partner  | What will you do?                                     | Completed? | What are you going to work on next? | Stuck on? |
 | ----- | -------- | ----------------------------------------------------- | ---------- | ----------------------------------- | --------- |
+<<<<<<< HEAD
 | Day 1 |Thanmayee | Database setup and table creation                     | ⬜          |                   |           |
 | Day 1 | Lakshya | Working on functions.py along with main.py | ⬜          |                       |           |
 | Day 1 | Poojitha| Working on functions.py along with main.py                  | ⬜          |                         |           |
@@ -37,5 +38,15 @@ Student council elections in many colleges are still run with paper forms, sprea
 | Day 3 | Member 1 |                       | ⬜          |                   |           |
 | Day 3 | Member 2 |                          | ⬜          |                     |           |
 | Day 3 | Member 3 |                  | ⬜          |                     |           |
+=======
+| Day 1 | Thanmayee  | Database setup and table creation                     |           |                   |           |
+| Day 1 | Lakshya | Working on functions.py along with main.py |           |                       |           |
+| Day 1 | Poojitha | Working on functions.py along with main.py                   |           |                         |           |
+| Day 2 | Member 1 |                  |           |                         |           |
+| Day 2 | Member 2 |             |           |                    |           |
+| Day 2 | Member 3 |                |           |               |           |
+| Day 3 | Member 1 |                      |           |                   |           |
+| Day 3 | Member 2 |                      |          |                   |           |                     |           |
+>>>>>>> origin/thanmayee
 
 

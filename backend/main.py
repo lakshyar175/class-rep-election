@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from sqlalchemy import Integer, String, Column, create_engine, DateTime, ForeignKey
 from sqlalchemy.orm import Session, declarative_base
 from datetime import datetime
@@ -36,3 +37,6 @@ def get_election_phase():
     if response is None:
         raise HTTPException(status_code=404, detail="Election not found")
     return {"phase": response}
+=======
+
+>>>>>>> origin/thanmayee
