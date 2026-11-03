@@ -28,13 +28,13 @@ Student council elections in many colleges are still run with paper forms, sprea
 
 | Day   | Partner  | What will you do?                                     | Completed? | What are you going to work on next? | Stuck on? |
 | ----- | -------- | ----------------------------------------------------- | ---------- | ----------------------------------- | --------- |
-| Day 1 | Thanmayee  | Database setup and table creation                     | ⬜          |                   |           |
-| Day 1 | Lakshya | Working on functions.py and election validation rules | ⬜          |                       |           |
-| Day 1 | Poojitha | React setup and frontend components                   | ⬜          |                         |           |
-| Day 2 | Member 1 |                  | ⬜          |                         |           |
-| Day 2 | Member 2 |             | ⬜          |                    |           |
-| Day 2 | Member 3 |                | ⬜          |               |           |
-| Day 3 | Member 1 |                      | ⬜          |                   |           |
-| Day 3 | Member 2 |                      | ⬜          | Frontend testing and UI improvements                  | ⬜          |                     |           |
+| Day 1 | Thanmayee  | Database setup and table creation                     |           |                   |           |
+| Day 1 | Lakshya | Working on functions.py along with main.py |           |                       |           |
+| Day 1 | Poojitha | Working on functions.py along with main.py                   |           |                         |           |
+| Day 2 | Member 1 |                  |           |                         |           |
+| Day 2 | Member 2 |             |           |                    |           |
+| Day 2 | Member 3 |                |           |               |           |
+| Day 3 | Member 1 |                      |           |                   |           |
+| Day 3 | Member 2 |                      |          |                   |           |                     |           |
 
 
