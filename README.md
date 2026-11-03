@@ -28,14 +28,14 @@ Student council elections in many colleges are still run with paper forms, sprea
 
 | Day   | Partner  | What will you do?                                     | Completed? | What are you going to work on next? | Stuck on? |
 | ----- | -------- | ----------------------------------------------------- | ---------- | ----------------------------------- | --------- |
-| Day 1 | Member 1 | Database setup and table creation                     | ⬜          |                   |           |
-| Day 1 | Member 2 | Working on functions.py and election validation rules | ⬜          |                       |           |
-| Day 1 | Member 3 | React setup and frontend components                   | ⬜          |                         |           |
-| Day 2 | Member 1 | Working on main.py and API endpoints                  | ⬜          |                         |           |
-| Day 2 | Member 2 | Testing API endpoints and handling errors             | ⬜          |                    |           |
-| Day 2 | Member 3 | Connecting React frontend with FastAPI                | ⬜          |               |           |
-| Day 3 | Member 1 | Backend testing and bug fixing                        | ⬜          |                   |           |
-| Day 3 | Member 2 | Database and API validation                           | ⬜          |                     |           |
-| Day 3 | Member 3 | Frontend testing and UI improvements                  | ⬜          |                     |           |
+| Day 1 | thanmayee | Database setup and table creation                     |           |                   |           |
+| Day 1 | lakshya | Working on functions.py along with main.py |           |                       |           |
+| Day 1 | poojitha | Working on functions.py along with main.py                   |           |                         |           |
+| Day 2 | thanmayee |                  |           |                         |           |
+| Day 2 | lakshya |             |           |                    |           |
+| Day 2 | poojitha |                 |           |               |           |
+| Day 3 | thanmayee |                         |           |                   |           |
+| Day 3 | lakshya |                            |           |                     |           |
+| Day 3 | poojitha |                  |           |                     |           |
 
 
