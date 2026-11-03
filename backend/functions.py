@@ -1,4 +1,3 @@
-
 from sqlalchemy import Integer, String, Column, create_engine, DateTime, ForeignKey
 from sqlalchemy.orm import Session, declarative_base
 from datetime import datetime
@@ -12,23 +11,22 @@ POSITIONS = ["class_rep","sports_secretary","cultural_secretary","tech_secretary
 
 class Candidates(Base):
     __tablename__ = "candidates"
-    id = Column[int](Integer, primary_key=True)
-    roll_no = Column[str](String)
-    name = Column[str](String)
-    position = Column[str](String)
-    manifesto = Column[str](String)
-    status = Column[str](String, default="nominated")
-    nominated_on = Column(DateTime, default=datetime.now)
+    id = Column(Integer, primary_key=True)
+    roll_no = Column(String)
+    name = Column(String)
+    position = Column(String)
+    manifesto = Column(String)
+    status = Column(String, default="nominated")
 
-class votes():
+class votes(Base):
     __tablename__ = "votes"
-    id = Column[int](Integer, primary_key=True)
-    position = Column[str](String)
-    candidate_id = Column[int](Integer)
-    voter_roll = Column[str](String)
+    id = Column(Integer, primary_key=True)
+    position = Column(String)
+    candidate_id = Column(Integer)
+    voter_roll = Column(String)
     voded_on = Column(DateTime, default=datetime.now)
 
-class Election():
+class Election(Base):
     __tablename__ = "election"
     id = Column(Integer, primary_key=True)
     phase = Column(String, default="nominations")
@@ -81,42 +79,45 @@ def sample_data():
         ]
         session.add_all(sample_candidates)
         session.commit()
-               
-# from sqlalchemy import Integer, String, Column, create_engine, DateTime, ForeignKey
-# from sqlalchemy.orm import Session, declarative_base
-# from datetime import datetime
-# from fastapi import HTTPException
 
-# DB_PATH = "election.db"
-# engine = create_engine(f"sqlite:///{DB_PATH}")
-# Base = declarative_base()
 
-# POSITIONS = ["class_rep","sports_secretary","cultural_secretary","tech_secretary"]
+# E1
+def get_candidates(position=None, approved_only=False):
+    session = Session(engine)
+    candidates = session.query(Candidates)
+    if position is not None:
+        candidates = candidates.filter(Candidates.position == position)
+    if approved_only:
+        candidates = candidates.filter(Candidates.status == "approved")
+    result = candidates.all()
+    session.close()
+    return result
 
-# class Candidates(Base):
-#     __tablename__ = "candidates"
-#     id = Column[int](Integer, primary_key=True)
-#     roll_no = Column[str](String)
-#     name = Column[str](String)
-#     position = Column[str](String)
-#     manifesto = Column[str](String)
-#     status = Column[str](String, default="nominated")
-#     nominated_on = Column(DateTime, default=datetime.now)
+# E2
+def get_candidate(id):
+    session = Session(engine)
+    candidate = session.get(Candidates, id)
+    session.close()
+    return candidate
 
-# class votes():
-#     __tablename__ = "votes"
-#     id = Column[int](Integer, primary_key=True)
-#     position = Column[str](String)
-#     candidate_id = Column[int](Integer)
-#     voter_roll = Column[str](String)
-#     voded_on = Column(DateTime, default=datetime.now)
-
-# class Election():
-#     __tablename__ = "election"
-#     id = Column(Integer, primary_key=True)
-#     phase = Column(String, default="nominations")
-
-# Base.metadata.create_all(engine)
+# E3
+def add_candidate(roll_no, name, position, manifesto):
+    session = Session(engine)
+    election = session.query(Election).first()
+    if election is None or election.phase != "nominations":
+        session.close()
+        return "phase_closed"
+    candidate = Candidates(
+        roll_no=roll_no,
+        name=name,
+        position=position,
+        manifesto=manifesto,
+        status="nominated"
+    )
+    session.add(candidate)
+    session.commit()
+    session.close()
+    return "nominated"
 
 # E4
 def approve_candidate(candidate_id):
