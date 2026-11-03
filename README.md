@@ -13,3 +13,13 @@ Student council elections in many colleges are still run with paper forms, sprea
 - Double voting
 - Lack of transparency
 - Manual effort
+
+
+# Tech Stack
+
+| Layer    | Technology                  |
+| -------- | --------------------------- |
+| Backend  | FastAPI (Python), port 8001 |
+| Database | SQLite (`election.db`)      |
+| Frontend | React                       |
+
