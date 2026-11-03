@@ -1,5 +1,6 @@
 # class-rep-election
 
+
 # Problem statement:
 The Class Rep Election Management System is a web-based application designed to simplify and manage student council elections digitally. The system allows students to nominate themselves for different student council positions, enables the election officer to review and approve nominations, and provides a platform for students to cast their votes securely.
 
