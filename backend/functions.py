@@ -24,7 +24,7 @@ class votes():
     __tablename__ = "votes"
     id = Column[int](Integer, primary_key=True)
     position = Column[str](String)
-    candidate_id = column[int](Integer)
+    candidate_id = Column[int](Integer)
     voter_roll = Column[str](String)
     voded_on = Column(DateTime, default=datetime.now)
 
@@ -36,3 +36,63 @@ class Election():
 
 Base.metadata.create_all(engine)
 
+
+def sample_data():
+    session = Session(engine)
+
+     try:
+        if session.query(Election).count() == 0:
+            election = Election(id=1, phase="nominations")
+            session.add(election)
+
+        if session.query(Candidates).count() == 0:
+
+        if session.query(Candidates).count() == 0:
+            sample_candidates = [
+                Candidates(roll_no="AU01", name="Toshima",
+                           position="class_rep",
+                           manifesto="I will represent students and improve communication.",
+                           status="approved"),
+
+                Candidates(roll_no="AU02", name="Harshitha",
+                           position="class_rep",
+                           manifesto="I will work towards better student coordination.",
+                           status="approved"),
+
+                Candidates(roll_no="AU03", name="Adib",
+                           position="sports_secretary",
+                           manifesto="I will encourage sports activities and teamwork.",
+                           status="approved"),
+
+                Candidates(roll_no="AU04", name="Hemanth",
+                           position="sports_secretary",
+                           manifesto="I will organize sports events for everyone.",
+                           status="nominated"),
+
+                Candidates(roll_no="AU05", name="Samhitha",
+                           position="cultural_secretary",
+                           manifesto="I will organize cultural programs and celebrations.",
+                           status="approved"),
+
+                Candidates(roll_no="AU06", name="Darsh",
+                           position="cultural_secretary",
+                           manifesto="I will encourage creativity and student participation.",
+                           status="approved"),
+
+                Candidates(roll_no="AU07", name="Shafi",
+                           position="tech_secretary",
+                           manifesto="I will promote technology and technical events.",
+                           status="approved"),
+
+                Candidates(roll_no="AU08", name="Sarang",
+                           position="tech_secretary",
+                           manifesto="I will bring innovative technical activities.",
+                           status="withdrawn")
+            ]
+            session.add_all(sample_candidates)
+        session.commit()
+    finally:
+        session.close()
+add_sample_data()
+
+               
