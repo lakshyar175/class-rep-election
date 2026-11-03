@@ -38,18 +38,4 @@ Student council elections in many colleges are still run with paper forms, sprea
 | Day 3 | Member 2 | Database and API validation                           | ⬜          |                     |           |
 | Day 3 | Member 3 | Frontend testing and UI improvements                  | ⬜          |                     |           |
 
-2. Endpoint Tracker
 
-Status: 🟩 Done | 🟨 In progress | ⬜ Not started
-
-#	Method + Path	Built	Rules checked in /docs	Connected to React	Who
-E1	GET /candidates	⬜	⬜	⬜	Member 1
-E2	GET /candidates/{id}	⬜	⬜	⬜	Member 1
-E3	POST /candidates	⬜	⬜	⬜	Member 2
-E4	PATCH /candidates/{id}/approve	⬜	⬜	⬜	Member 2
-E5	PATCH /candidates/{id}/withdraw	⬜	⬜	⬜	Member 2
-E6	GET /election/phase	⬜	⬜	⬜	Member 1
-E7	PATCH /election/phase	⬜	⬜	⬜	Member 1
-E8	POST /votes	⬜	⬜	⬜	Member 3
-E9	GET /votes/{roll_no}	⬜	⬜	⬜	Member 3
-E10	GET /results	⬜	⬜
