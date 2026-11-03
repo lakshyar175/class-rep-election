@@ -29,8 +29,8 @@ Student council elections in many colleges are still run with paper forms, sprea
 | Day   | Partner  | What will you do?                                     | Completed? | What are you going to work on next? | Stuck on? |
 | ----- | -------- | ----------------------------------------------------- | ---------- | ----------------------------------- | --------- |
 | Day 1 | Thanmayee | Database setup and table creation                     | ⬜          |                   |           |
-| Day 1 | Member 2 | Working on functions.py and election validation rules | ⬜          |                       |           |
-| Day 1 | Member 3 | React setup and frontend components                   | ⬜          |                         |           |
+| Day 1 | lakshya | Working on functions.py and election validation rules | ⬜          |                       |           |
+| Day 1 | poojitha | React setup and frontend components                   | ⬜          |                         |           |
 | Day 2 |  |                | ⬜          |                         |           |
 | Day 2 |  |             | ⬜          |                    |           |
 | Day 2 |  |               | ⬜          |               |           |
