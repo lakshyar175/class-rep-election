@@ -33,19 +33,10 @@ class Election():
     id = Column(Integer, primary_key=True)
     phase = Column(String, default="nominations")
 
-
 Base.metadata.create_all(engine)
-
 
 def sample_data():
     session = Session(engine)
-
-     try:
-        if session.query(Election).count() == 0:
-            election = Election(id=1, phase="nominations")
-            session.add(election)
-
-        if session.query(Candidates).count() == 0:
 
         if session.query(Candidates).count() == 0:
             sample_candidates = [
@@ -90,9 +81,5 @@ def sample_data():
                            status="withdrawn")
             ]
             session.add_all(sample_candidates)
-        session.commit()
-    finally:
-        session.close()
-add_sample_data()
-
+            session.commit()
                
