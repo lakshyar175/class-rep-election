@@ -239,7 +239,7 @@ def get_voted_positions(voter_roll):
     session.close()
     return {"voted_positions": positions}
 
-# E10 - Get results
+# E10 
 def get_results():
     session = Session(engine)
     election = session.get(Election, 1)
