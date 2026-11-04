@@ -37,12 +37,12 @@ def sample_data():
     session = Session(engine)
     if session.query(Candidates).count() == 0:
         sample_candidates = [
-        Candidates(roll_no="AU01", name="Toshima",
+        Candidates(roll_no="AU01", name="Toshimah",
         position="class_rep",
         manifesto="I will represent students and improve communication.",
         status="approved"),
 
-        Candidates(roll_no="AU02", name="Harshitha",
+        Candidates(roll_no="AU02", name="Harsita",
         position="class_rep",
         manifesto="I will work towards better student coordination.",
         status="approved"),
