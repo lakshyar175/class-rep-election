@@ -258,7 +258,12 @@ def add_sample_data():
              "I will bring innovative technical activities.", "withdrawn")
         ]
 
+        candidate_list = []
+
         for candidate in sample_candidates:
+            candidate_list.append(candidate)
+
+        for candidate in candidate_list:
             add_candidate(
                 roll_no=candidate[0],
                 name=candidate[1],
@@ -266,7 +271,5 @@ def add_sample_data():
                 manifesto=candidate[3],
                 status=candidate[4]
             )
-    session.close()
 
-add_election()
-add_sample_data()
+    session.close()
