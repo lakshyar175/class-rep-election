@@ -261,5 +261,45 @@ def get_results():
                 "votes": count
             })
         results[position] = position_results
+
+    def add_sample_data():
+    session = Session(engine)
+    if session.query(Candidates).count() == 0:
+        sample_candidates = [
+            ("AU01", "Toshima", "class_rep",
+             "I will represent students and improve communication.", "approved"),
+
+            ("AU02", "Harshitha", "class_rep",
+             "I will work towards better student coordination.", "approved"),
+
+            ("AU03", "Adib", "sports_secretary",
+             "I will encourage sports activities and teamwork.", "approved"),
+
+            ("AU04", "Hemanth", "sports_secretary",
+             "I will organize sports events for everyone.", "nominated"),
+
+            ("AU05", "Samhitha", "cultural_secretary",
+             "I will organize cultural programs and celebrations.", "approved"),
+
+            ("AU06", "Darsh", "cultural_secretary",
+             "I will encourage creativity and student participation.", "approved"),
+
+            ("AU07", "Shafi", "tech_secretary",
+             "I will promote technology and technical events.", "approved"),
+
+            ("AU08", "Sarang", "tech_secretary",
+             "I will bring innovative technical activities.", "withdrawn")
+        ]
+        for candidate in sample_candidates:
+            add_candidate(
+                roll_no=candidate[0],
+                name=candidate[1],
+                position=candidate[2],
+                manifesto=candidate[3],
+                status=candidate[4]
+            )
+    session.close()
     session.close()
     return results
+add_election()
+add_sample_data()
