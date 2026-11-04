@@ -11,23 +11,22 @@ POSITIONS = ["class_rep","sports_secretary","cultural_secretary","tech_secretary
 
 class Candidates(Base):
     __tablename__ = "candidates"
-    id = Column[int](Integer, primary_key=True)
-    roll_no = Column[str](String)
-    name = Column[str](String)
-    position = Column[str](String)
-    manifesto = Column[str](String)
-    status = Column[str](String, default="nominated")
-    nominated_on = Column(DateTime, default=datetime.now)
+    id = Column(Integer, primary_key=True)
+    roll_no = Column(String)
+    name = Column(String)
+    position = Column(String)
+    manifesto = Column(String)
+    status = Column(String, default="nominated")
 
-class votes():
+class votes(Base):
     __tablename__ = "votes"
-    id = Column[int](Integer, primary_key=True)
-    position = Column[str](String)
-    candidate_id = Column[int](Integer)
-    voter_roll = Column[str](String)
+    id = Column(Integer, primary_key=True)
+    position = Column(String)
+    candidate_id = Column(Integer)
+    voter_roll = Column(String)
     voded_on = Column(DateTime, default=datetime.now)
 
-class Election():
+class Election(Base):
     __tablename__ = "election"
     id = Column(Integer, primary_key=True)
     phase = Column(String, default="nominations")
