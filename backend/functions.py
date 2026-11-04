@@ -48,10 +48,16 @@ def add_candidate(roll_no, name, position, manifesto):
         session.close()
         return "phase_closed"
 
-    candidate = Candidates( roll_no=roll_no, name=name, position=position, manifesto=manifesto, status="nominated" )
+    candidate = Candidates( 
+        roll_no=roll_no,
+        name=name,
+        position=position,
+        manifesto=manifesto,
+        status="nominated"
+    )
 
     session.add(candidate)
     session.commit()
 
     session.close()
-    return f"{name} is nominated as {position}"
+    return "nominated"
