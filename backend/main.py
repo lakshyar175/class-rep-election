@@ -4,33 +4,6 @@ from datetime import datetime
 from fastapi import FastAPI, HTTPException
 import functions
 
-<<<<<<< HEAD
-app = FastAPI()
-
-@app.get("/candidates")
-def candidates(position=None, approved_only=False):
-    return functions.get_candidates(position, approved_only)
-
-
-@app.get("/candidates/{id}")
-def candidate(id: int):
-    result = functions.get_candidate(id)
-    if result is None:
-        raise HTTPException(status_code=404, detail="Candidate not found")
-    return result
-
-
-@app.post("/candidates")
-def nominate(roll_no: str, name: str, position: str, manifesto: str):
-    if position not in functions.POSITIONS:
-        raise HTTPException(status_code=422, detail="Invalid position")
-    if len(manifesto) < 30:
-        raise HTTPException(status_code=422, detail="Manifesto must contain at least 30 characters")
-    result = functions.nominate_candidate(roll_no, name, position, manifesto)
-    return result
-
-=======
->>>>>>> 49676f0fdf7a62b9b963ac1d9d2ae6a789a4448c
 app = FastAPI()
 functions.sample_data()
 
@@ -88,7 +61,6 @@ def get_election_phase():
     if response is None:
         raise HTTPException(status_code=404, detail="Election not found")
     return {"phase": response}
-<<<<<<< HEAD
 
 
 # E7
@@ -101,19 +73,6 @@ def change_phase():
         raise HTTPException(status_code=400, detail="No approved candidate")
     return result
 
-=======
-
-# E7
-@app.patch("/election/phase/next")
-def change_phase():
-    result = functions.next_phase()
-    if result == "closed":
-        raise HTTPException(status_code=400, detail="Election already closed")
-    if result == "no_candidate":
-        raise HTTPException(status_code=400, detail="No approved candidate")
-    return result
-
->>>>>>> 49676f0fdf7a62b9b963ac1d9d2ae6a789a4448c
 # E8
 @app.post("/votes", status_code=201)
 def vote(voter_roll: str, candidate_id: int):
