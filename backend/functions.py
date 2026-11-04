@@ -100,6 +100,16 @@ def approve_candidate(candidate_id):
         session.close()
         return "invalid_status"
     candidate.status = "approved"
+
+    candidate = Candidates( 
+        roll_no=roll_no,
+        name=name,
+        position=position,
+        manifesto=manifesto,
+        status="nominated"
+    )
+
+    session.add(candidate)
     session.commit()
     session.close()
     return "approved"
@@ -273,3 +283,4 @@ def add_sample_data():
             )
 
     session.close()
+    return "nominated"
