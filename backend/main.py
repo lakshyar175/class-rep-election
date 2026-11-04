@@ -62,6 +62,7 @@ def get_election_phase():
         raise HTTPException(status_code=404, detail="Election not found")
     return {"phase": response}
 
+
 # E7
 @app.patch("/election/phase/next")
 def change_phase():

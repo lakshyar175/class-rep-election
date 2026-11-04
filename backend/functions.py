@@ -33,54 +33,6 @@ class Election(Base):
 
 Base.metadata.create_all(engine)
 
-def sample_data():
-    session = Session(engine)
-    if session.query(Candidates).count() == 0:
-        sample_candidates = [
-        Candidates(roll_no="AU01", name="Toshimah",
-        position="class_rep",
-        manifesto="I will represent students and improve communication.",
-        status="approved"),
-
-        Candidates(roll_no="AU02", name="Harsita",
-        position="class_rep",
-        manifesto="I will work towards better student coordination.",
-        status="approved"),
-
-        Candidates(roll_no="AU03", name="Adib",
-        position="sports_secretary",
-        manifesto="I will encourage sports activities and teamwork.",
-        status="approved"),
-
-        Candidates(roll_no="AU04", name="Hemanth",
-        position="sports_secretary",
-        manifesto="I will organize sports events for everyone.",
-        status="nominated"),
-
-        Candidates(roll_no="AU05", name="Samhitha",
-        position="cultural_secretary",
-        manifesto="I will organize cultural programs and celebrations.",
-        status="approved"),
-
-        Candidates(roll_no="AU06", name="Darsh",
-        position="cultural_secretary",
-        manifesto="I will encourage creativity and student participation.",
-        status="approved"),
-
-        Candidates(roll_no="AU07", name="Shafi",
-        position="tech_secretary",
-        manifesto="I will promote technology and technical events.",
-        status="approved"),
-
-        Candidates(roll_no="AU08", name="Sarang",
-        position="tech_secretary",
-        manifesto="I will bring innovative technical activities.",
-        status="withdrawn")
-        ]
-        session.add_all(sample_candidates)
-        session.commit()
-
-
 # E1
 def get_candidates(position=None, approved_only=False):
     session = Session(engine)
@@ -100,6 +52,7 @@ def get_candidate(id):
     session.close()
     return candidate
 
+
 # E3
 def add_candidate(roll_no, name, position, manifesto):
     session = Session(engine)
@@ -107,17 +60,18 @@ def add_candidate(roll_no, name, position, manifesto):
     if election is None or election.phase != "nominations":
         session.close()
         return "phase_closed"
-    candidate = Candidates(
+    candidate = Candidates( 
         roll_no=roll_no,
         name=name,
         position=position,
         manifesto=manifesto,
         status="nominated"
     )
+
     session.add(candidate)
     session.commit()
     session.close()
-    return "nominated"
+    return "nominated"        
 
 # E4
 def approve_candidate(candidate_id):
@@ -134,6 +88,16 @@ def approve_candidate(candidate_id):
         session.close()
         return "invalid_status"
     candidate.status = "approved"
+
+    candidate = Candidates( 
+        roll_no="roll_no",
+        name="name",
+        position="position",
+        manifesto="manifesto",
+        status="nominated"
+    )
+
+    session.add(candidate)
     session.commit()
     session.close()
     return "approved"
@@ -195,7 +159,6 @@ def next_phase():
     session.close()
     return {"phase": phase}
 
-
 # E8
 def cast_vote(voter_roll, candidate_id):
     session = Session(engine)
@@ -227,7 +190,6 @@ def cast_vote(voter_roll, candidate_id):
     session.close()
     return {"message": "Vote recorded successfully"}
 
-
 # E9
 def get_voted_positions(voter_roll):
     session = Session(engine)
@@ -239,7 +201,7 @@ def get_voted_positions(voter_roll):
     session.close()
     return {"voted_positions": positions}
 
-# E10 - Get results
+# E10 
 def get_results():
     session = Session(engine)
     election = session.get(Election, 1)
@@ -263,3 +225,50 @@ def get_results():
         results[position] = position_results
     session.close()
     return results
+
+# E11
+def add_sample_data():
+    session = Session(engine)
+    if session.query(Candidates).count() == 0:
+        sample_candidates = [
+            ("AU01", "Toshima", "class_rep",
+             "I will represent students and improve communication.", "approved"),
+
+            ("AU02", "Harshitha", "class_rep",
+             "I will work towards better student coordination.", "approved"),
+
+            ("AU03", "Adib", "sports_secretary",
+             "I will encourage sports activities and teamwork.", "approved"),
+
+            ("AU04", "Hemanth", "sports_secretary",
+             "I will organize sports events for everyone.", "nominated"),
+
+            ("AU05", "Samhitha", "cultural_secretary",
+             "I will organize cultural programs and celebrations.", "approved"),
+
+            ("AU06", "Darsh", "cultural_secretary",
+             "I will encourage creativity and student participation.", "approved"),
+
+            ("AU07", "Shafi", "tech_secretary",
+             "I will promote technology and technical events.", "approved"),
+
+            ("AU08", "Sarang", "tech_secretary",
+             "I will bring innovative technical activities.", "withdrawn")
+        ]
+
+        candidate_list = []
+
+        for candidate in sample_candidates:
+            candidate_list.append(candidate)
+
+        for candidate in candidate_list:
+            add_candidate(
+                roll_no=candidate[0],
+                name=candidate[1],
+                position=candidate[2],
+                manifesto=candidate[3],
+                status=candidate[4]
+            )
+
+    session.close()
+    return "nominated"
