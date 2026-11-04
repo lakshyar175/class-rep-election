@@ -22,54 +22,20 @@ Student council elections in many colleges are still run with paper forms, sprea
 | Database | SQLite (`election.db`)      |
 | Frontend | React                       |
 
-## 1. Who Is Doing What?
-
-<<<<<<< HEAD
 ## 1. Who is doing what?
 
 | Day   | Partner  | What will you do?                                     | Completed? | What are you going to work on next? | Stuck on? |
 | ----- | -------- | ----------------------------------------------------- | ---------- | ----------------------------------- | --------- |
 
-| Day 1 | Thanmayee  | Database setup and table creation                     |           |                   |           |
-| Day 1 | Lakshya | Working on functions.py along with main.py |           |                       |           |
-| Day 1 | Poojitha | Working on functions.py along with main.py                   |           |                         |           |
-| Day 2 | Member 1 |                  |           |                         |           |
-| Day 2 | Member 2 |             |           |                    |           |
-| Day 2 | Member 3 |                |           |               |           |
-| Day 3 | Member 1 |                      |           |                   |           |
+| Day 1 | Thanmayee  | Database setup and table creation                     | yes          | starting work on frontend       |  No         |
+| Day 1 | Lakshya | Working on functions.py along with main.py |           |  yes                     | testing fastapi          |  No
+| Day 1 | Poojitha | Working on functions.py along with main.py                   |  yes         |  starting work on frontend               |  No         |
+| Day 2 | Thanmayee | working on functions and endpoints with errors and merge conflics            |  No      |  Debugging and make swagger work properly    |  Yes         |
+| Day 2 | Lakshya | working on functions and endpoints with errors and merge conflics          |   No         |  Debugging and make swagger work properly    |  Yes         |
+| Day 2 | Poojitha | working on functions and endpoints with errors and merge conflics          |  No         |  Debugging and make swagger work properly    |  Yes         |
+| Day 3 | Member 1 |                      |           |                   |           |                    |           |
 | Day 3 | Member 2 |                      |          |                   |           |                     |           |
-
-| Day 1 | thanmayee | Database setup and table creation                     |           |                   |           |
-| Day 1 | lakshya | Working on functions.py along with main.py |           |                       |           |
-| Day 1 | poojitha | Working on functions.py along with main.py                   |           |                         |           |
-| Day 2 | thanmayee |                  |           |                         |           |
-| Day 2 | lakshya |             |           |                    |           |
-| Day 2 | poojitha |                 |           |               |           |
-| Day 3 | thanmayee |                         |           |                   |           |
-| Day 3 | lakshya |                            |           |                     |           |
-| Day 3 | poojitha |                  |           |                     |           |
-
-| Day 1 |Thanmayee | Database setup and table creation                     | ⬜          |                   |           |
-| Day 1 | Lakshya | Working on functions.py along with main.py | ⬜          |                       |           |
-| Day 1 | Poojitha| Working on functions.py along with main.py                  | ⬜          |                         |           |
-| Day 2 | Member 1 |                  | ⬜          |                         |           |
-| Day 2 | Member 2 |             | ⬜          |                    |           |
-| Day 2 | Member 3 |              | ⬜          |               |           |
-| Day 3 | Member 1 |                       | ⬜          |                   |           |
-| Day 3 | Member 2 |                          | ⬜          |                     |           |
-| Day 3 | Member 3 |                  | ⬜          |                     |           |
+| Day 3 | Member 3 |                      |          |                   |           |                     |           |
 
 
-=======
-| Day   | Partner   | What will you do?                          | Completed? | What are you going to work on next? | Stuck on? |
-| ----- | --------- | ------------------------------------------ | ---------- | ----------------------------------- | --------- |
-| Day 1 | Thanmayee | Database setup and table creation          | ⬜          |                                     |           |
-| Day 1 | Lakshya   | Working on functions.py along with main.py | ⬜          |                                     |           |
-| Day 1 | Poojitha  | Working on functions.py along with main.py | ⬜          |                                     |           |
-| Day 2 | Thanmayee |                                            | ⬜          |                                     |           |
-| Day 2 | Lakshya   |                                            | ⬜          |                                     |           |
-| Day 2 | Poojitha  |                                            | ⬜          |                                     |           |
-| Day 3 | Thanmayee |                                            | ⬜          |                                     |           |
-| Day 3 | Lakshya   |                                            | ⬜          |                                     |           |
-| Day 3 | Poojitha  |                                            | ⬜          |                                     |           |
->>>>>>> 49676f0fdf7a62b9b963ac1d9d2ae6a789a4448c
+
