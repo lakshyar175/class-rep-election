@@ -170,3 +170,96 @@ def get_election_phase():
     phase = election.phase
     session.close()
     return phase
+
+# E7
+def next_phase():
+    session = Session(engine)
+    election = session.get(Election, 1)
+    if election.phase == "nominations":
+        for position in POSITIONS:
+            candidate = session.query(Candidates).filter(
+                Candidates.position == position,
+                Candidates.status == "approved"
+            ).first()
+            if candidate is None:
+                session.close()
+                return "no_candidate"
+        election.phase = "voting"
+    elif election.phase == "voting":
+        election.phase = "closed"
+    else:
+        session.close()
+        return "closed"
+    session.commit()
+    phase = election.phase
+    session.close()
+    return {"phase": phase}
+
+
+# E8
+def cast_vote(voter_roll, candidate_id):
+    session = Session(engine)
+    election = session.get(Election, 1)
+    if election.phase != "voting":
+        session.close()
+        return "voting_closed"
+    candidate = session.get(Candidates, candidate_id)
+    if candidate is None:
+        session.close()
+        return "not_found"
+    if candidate.status != "approved":
+        session.close()
+        return "not_approved"
+    existing = session.query(votes).filter(
+        votes.voter_roll == voter_roll,
+        votes.position == candidate.position
+    ).first()
+    if existing is not None:
+        session.close()
+        return "already_voted"
+    vote = votes(
+        voter_roll=voter_roll,
+        candidate_id=candidate_id,
+        position=candidate.position
+    )
+    session.add(vote)
+    session.commit()
+    session.close()
+    return {"message": "Vote recorded successfully"}
+
+
+# E9
+def get_voted_positions(voter_roll):
+    session = Session(engine)
+    votes = session.query(votes).filter(
+        votes.voter_roll == voter_roll).all()
+    positions = []
+    for vote in votes:
+        positions.append(vote.position)
+    session.close()
+    return {"voted_positions": positions}
+
+# E10 - Get results
+def get_results():
+    session = Session(engine)
+    election = session.get(Election, 1)
+    if election.phase != "closed":
+        session.close()
+        return "not_closed"
+    results = {}
+    for position in POSITIONS:
+        candidates = session.query(Candidates).filter(
+            Candidates.position == position,
+            Candidates.status == "approved").all()
+        position_results = []
+        for candidate in candidates:
+            count = session.query(votes).filter(
+                votes.candidate_id == candidate.id).count()
+            position_results.append({
+                "candidate_id": candidate.id,
+                "name": candidate.name,
+                "votes": count
+            })
+        results[position] = position_results
+    session.close()
+    return results
