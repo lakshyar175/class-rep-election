@@ -1,7 +1,14 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 import functions
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173","http://127.0.0.1:5173"],
+    allow_methods=["*"],
+    allow_headers=["*"])
+
 functions.initialize_database()
 
 # E1
@@ -80,7 +87,7 @@ def change_phase(phase: str):
     return result
 
 # E8
-@app.post("/votes", status_code=201)
+@app.post("/votes")
 def vote(voter_roll: str, candidate_id: int):
     if voter_roll == "":
         raise HTTPException(status_code=422,detail="Empty roll number")
