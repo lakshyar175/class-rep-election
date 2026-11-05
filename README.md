@@ -34,8 +34,8 @@ Student council elections in many colleges are still run with paper forms, sprea
 | Day 2 | Thanmayee | working on errors in the backend code                | No         | Debugging                                 |  Yes  |
 | Day 2 | lakshya | working on errors in the backend code                  | No         | Debugging                                 |  Yes  |
 | Day 2 | poojitha | working on errors in the backend code                 | No         | Debugging                                 |  Yes  |
-| Day 3 |  |                      |           |                   |           |
-| Day 3 |  |                           |           |                     |           |
-| Day 3 |  |                  |          |                     |           |
+| Day 3 | Thanmayee | worked on officer.jsx file                 |  yes        | testing front end                  |   no        |
+| Day 3 | lakshya  |  worked on nominate and app.jsx file                         |  yes         |   testing frontend                  |   no        |
+| Day 3 | poojitha  |  worked on vote.jsx                |   yes       |     testing frontend                |   no        |
 
 
