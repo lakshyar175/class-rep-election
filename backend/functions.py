@@ -32,15 +32,19 @@ class Election(Base):
     id = Column(Integer, primary_key=True)
     phase = Column(String, default="nominations")
 
+
 Base.metadata.create_all(engine)
 
 
-def initialize_database():session = Session(engine)election = session.query(Election).first()
+def initialize_database():
+    session = Session(engine)
+    election = session.query(Election).first()
     if election is None:
         election = Election(id=1, phase="nominations")
         session.add(election)
         session.commit()
     session.close()
+
 
 # E1
 def get_all_candidates(position=None, approved_only=False):
@@ -54,6 +58,7 @@ def get_all_candidates(position=None, approved_only=False):
     session.close()
     return result
 
+
 # E2
 def get_candidate(candidate_id):
     session = Session(engine)
@@ -63,6 +68,7 @@ def get_candidate(candidate_id):
         return "not_found"
     return candidate
 
+
 # E3
 def add_candidate(roll_no, name, position, manifesto):
     session = Session(engine)
@@ -70,30 +76,30 @@ def add_candidate(roll_no, name, position, manifesto):
         session.close()
         return "invalid_position"
     existing = session.query(Candidates).filter(Candidates.roll_no == roll_no,Candidates.status != "withdrawn").first()
+    
     if existing is not None:
         session.close()
         return "duplicate_roll"
-    candidate = Candidates(
-        roll_no=roll_no,
-        name=name,
-        position=position,
-        manifesto=manifesto,
-        status="nominated"
-    )
+    candidate = Candidates(roll_no=roll_no,name=name,position=position,manifesto=manifesto,status="nominated")
     session.add(candidate)
     session.commit()
     session.close()
     return "nominated"
 
+
 # E4
-def approve_candidate(candidate_id):session = Session(engine)election = session.query(Election).first()
+def approve_candidate(candidate_id):
+    session = Session(engine)
+    election = session.query(Election).first()
     if election is None or election.phase != "nominations":
         session.close()
         return "phase_closed"
+
     candidate = session.get(Candidates, candidate_id)
     if candidate is None:
         session.close()
         return "not_found"
+
     if candidate.status != "nominated":
         session.close()
         return "not_nominated"
@@ -102,18 +108,24 @@ def approve_candidate(candidate_id):session = Session(engine)election = session.
     session.close()
     return "approved"
 
+
 # E5
-def withdraw_candidate(candidate_id, roll_no):session = Session(engine)election = session.query(Election).first()
+def withdraw_candidate(candidate_id, roll_no):
+    session = Session(engine)
+    election = session.query(Election).first()
     if election is None or election.phase != "nominations":
         session.close()
         return "phase_closed"
     candidate = session.get(Candidates, candidate_id)
+
     if candidate is None:
         session.close()
         return "not_found"
+
     if candidate.roll_no != roll_no:
         session.close()
         return "roll_mismatch"
+
     if candidate.status == "withdrawn":
         session.close()
         return "already_withdrawn"
@@ -122,8 +134,11 @@ def withdraw_candidate(candidate_id, roll_no):session = Session(engine)election 
     session.close()
     return "withdrawn"
 
+
 # E6
-def get_election_phase():session = Session(engine)election = session.query(Election).first()
+def get_election_phase():
+    session = Session(engine)
+    election = session.query(Election).first()
     if election is None:
         session.close()
         return "no_election"
@@ -131,14 +146,19 @@ def get_election_phase():session = Session(engine)election = session.query(Elect
     session.close()
     return phase
 
+
 # E7
-def change_phase(phase):session = Session(engine)election = session.query(Election).first()
+def change_phase(phase):
+    session = Session(engine)
+    election = session.query(Election).first()
     if election is None:
         session.close()
         return "no_election"
+        
     if phase != "nominations" and phase != "voting" and phase != "closed":
         session.close()
         return "invalid_phase"
+
     if phase == "voting":
         for position in POSITIONS:
             candidate = session.query(Candidates).filter(Candidates.position == position,Candidates.status == "approved").first()
@@ -150,20 +170,26 @@ def change_phase(phase):session = Session(engine)election = session.query(Electi
     session.close()
     return {"phase": phase}
 
+
 # E8
-def cast_vote(voter_roll, candidate_id):session = Session(engine)election = session.query(Election).first()
+def cast_vote(voter_roll, candidate_id):
+    session = Session(engine)
+    election = session.query(Election).first()
     if election is None or election.phase != "voting":
         session.close()
         return "voting_closed"
     candidate = session.get(Candidates, candidate_id)
+
     if candidate is None:
         session.close()
         return "not_found"
+
     if candidate.status != "approved":
         session.close()
         return "not_approved"
     position = candidate.position
     existing = session.query(Votes).filter(Votes.voter_roll == voter_roll,Votes.position == candidate.position).first()
+    
     if existing is not None:
         session.close()
         return "already_voted"
@@ -173,45 +199,55 @@ def cast_vote(voter_roll, candidate_id):session = Session(engine)election = sess
     session.close()
     return {"message": "Vote recorded successfully","voter_roll": voter_roll,"candidate_id": candidate_id,"position": position}
 
+
 # E9
 def get_voted_positions(voter_roll):
     session = Session(engine)
-    voted = session.query(Votes).filter(Votes.voter_roll == voter_roll).all()
+    voted = session.query(Votes).filter(
+        Votes.voter_roll == voter_roll).all()
     positions = []
     for vote in voted:
         positions.append(vote.position)
     session.close()
     return {"voted_positions": positions}
 
+
 # E10
-def get_results():session = Session(engine)election = session.query(Election).first()
+def get_results():
+    session = Session(engine)
+    election = session.query(Election).first()
     if election is None or election.phase != "closed":
         session.close()
         return "not_closed"
     results = {}
+
     for position in POSITIONS:
-        candidates = session.query(Candidates).filter(Candidates.position == position,Candidates.status == "approved").all()
+        candidates = session.query(Candidates).filter(
+            Candidates.position == position,
+            Candidates.status == "approved").all()
         position_results = []
+
         for candidate in candidates:
             count = session.query(Votes).filter(Votes.candidate_id == candidate.id).count()
             position_results.append({"candidate_id": candidate.id,"name": candidate.name,"votes": count})
         highest_votes = 0
+
         for item in position_results:
             if item["votes"] > highest_votes:
                 highest_votes = item["votes"]
-
         winner = "No votes"
         winner_count = 0
+
         for item in position_results:
             if highest_votes > 0 and item["votes"] == highest_votes:
                 winner = item
                 winner_count = winner_count + 1
         if winner_count > 1:
             winner = "Tie"
-
         results[position] = {"candidates": position_results,"winner": winner}
     session.close()
     return results
+
 
 # E11
 def add_sample_data():
