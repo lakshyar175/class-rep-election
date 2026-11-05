@@ -1,0 +1,10 @@
+<<<<<<< HEAD
+
+__pycache__/
+*.py[cod]
+=======
+.venv/
+__pycache__/
+*.pyc
+node_modules/
+>>>>>>> 49676f0fdf7a62b9b963ac1d9d2ae6a789a4448c
