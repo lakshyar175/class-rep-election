@@ -25,7 +25,6 @@ Student council elections in many colleges are still run with paper forms, sprea
 ## 1. Who Is Doing What?
 
 
-=======
 | Day   | Partner   | What will you do?                          | Completed? | What are you going to work on next? | Stuck on? |
 | ----- | --------- | ------------------------------------------ | ---------- | ----------------------------------- | --------- |
 | Day 1 | Thanmayee | Database setup and table creation          | ⬜          |                                     |           |
