@@ -6,7 +6,7 @@ functions.initialize_database()
 
 # E1
 @app.get("/candidates")
-def get_candidates(position: str = None,approved_only: bool = False):
+def get_candidates(position = None,approved_only = False):
     if position and position not in functions.POSITIONS:
         raise HTTPException(status_code=422,detail="Invalid position")
     return functions.get_all_candidates(position, approved_only)
