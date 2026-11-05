@@ -28,14 +28,13 @@ Student council elections in many colleges are still run with paper forms, sprea
 
 | Day   | Partner  | What will you do?                                     | Completed? | What are you going to work on next? | Stuck on? |
 | ----- | -------- | ----------------------------------------------------- | ---------- | ----------------------------------- | --------- |
-| Day 1 | thanmayee | Database setup and table creation                     |           |                   |           |
-| Day 1 | lakshya | Working on functions.py along with main.py |           |                       |           |
-| Day 1 | poojitha | Working on functions.py along with main.py                   |           |                         |           |
-| Day 2 | thanmayee |                  |           |                         |           |
-| Day 2 | lakshya |             |           |                    |           |
-| Day 2 | poojitha |                 |           |               |           |
-| Day 3 | thanmayee |                         |           |                   |           |
-| Day 3 | lakshya |                            |           |                     |           |
-| Day 3 | poojitha |                  |           |                     |           |
-
+| Day 1 | Thanmayee | Database setup and table creation                    | Yes        | testing and making my swagger work better |  No   |
+| Day 1 | lakshya | Working on functions.py along with main.py             | Yes        | testing and working on frontend           |  No   |
+| Day 1 | poojitha | Working on functions.py along with main.py            | Yes        | testing and working on frontend           |  No   |
+| Day 2 | Thanmayee | working on errors in the backend code                | No         | Debugging                                 |  Yes  |
+| Day 2 | lakshya | working on errors in the backend code                  | No         | Debugging                                 |  Yes  |
+| Day 2 | poojitha | working on errors in the backend code                 | No         | Debugging                                 |  Yes  |
+| Day 3 | Thanmayee | worked on officer.jsx file                 |  yes        | testing front end                  |   no        |
+| Day 3 | lakshya  |  worked on nominate and app.jsx file                         |  yes         |   testing frontend                  |   no        |
+| Day 3 | poojitha  |  worked on vote.jsx                |   yes       |     testing frontend                |   no        |
 
