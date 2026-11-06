@@ -19,6 +19,7 @@ if (data.detail) {
 setMessage(data.detail);
 } else {
 setPhase(data.phase);
+
       if (data.phase === "closed") {
         fetch(API_URL + "/results")
           .then((res) => res.json())
@@ -30,25 +31,26 @@ setPhase(data.phase);
   })
   .catch(() => setMessage("Cannot connect to the server"));
 
-fetch(API_URL + "/candidates")  // gets the data for all candidates
+fetch(API_URL + "/candidates")
   .then((res) => res.json())
   .then((data) => {
-    if (Array.isArray(data)) {
-      setCandidates(data);
-    } else {
+    if (data.detail) {
       setMessage(data.detail);
+    } else {
+      setCandidates(data);
     }
   })
   .catch(() => setMessage("Cannot connect to the server"));
 
 }
 
-useEffect(() => {loadAll();
+useEffect(() => {
+loadAll();
 }, []);
 
 return (
 <> <h2>Phase: {phase}</h2>
-  {message !== "" && <p>{message}</p>}
+{message !== "" && <p>{message}</p>}
   <Vote
     apiUrl={API_URL}
     candidates={candidates}
@@ -72,7 +74,6 @@ return (
     loadAll={loadAll}
   />
 </>
-
 );
 }
 
