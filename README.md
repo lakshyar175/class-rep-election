@@ -41,9 +41,9 @@ Student council elections in many colleges are still run with paper forms, sprea
 
 |#	Method | path	Built	Rules checked in /docs |	Connected to React	| Who |
 | -------- | --------------------------------- |  ------------------- | --- |
-|E1	get    |✅	|✅ |	✅|Poojitha |
+|E1	get    |✅	|✅ |✅|Poojitha |
 |E2	post   |✅ |✅ |	✅|Poojitha |
-|E3	get	   |✅	|✅ |	✅|Poojitha |
+|E3	get	   |✅	|✅ |✅|Poojitha |
 |E4	patch	 |✅ |✅ |	✅|Lakshya  |
 |E5	patch	 |✅ |✅ |	✅|Lakshya  |
 |E6	get  	 |✅ |✅	| ✅|Lakshya  |
@@ -54,11 +54,11 @@ Student council elections in many colleges are still run with paper forms, sprea
 
 ## Frontend tracker
 
-| components files |	Shows the data |	Buttons work|	Shows API errors|	Who |
-| ---------------  | -------------- |  ----------------------------- | --- |
-| Nominate         |✅|	✅|	✅| Lakshya |
-| Vote	           | ✅|	✅|✅|	Poojitha |
-| Officer	         | ✅|	✅|✅|	Thanmayee |
+| components files |	Shows the data |	Buttons work |	Shows API errors|	Who |
+| ---------------  | -------------- |  ------------- | ---------------- | --- |
+| Nominate         | ✅|	✅|✅ | Lakshya |
+| Vote	           | ✅|	✅|✅ |	Poojitha |
+| Officer	         | ✅|	✅|✅ |	Thanmayee |
 
 ## How to run our app
 
