@@ -20,7 +20,7 @@ def get_candidates(position = None,approved_only = False):
 
 # E2
 @app.get("/candidates/{candidate_id}")
-def candidate(candidate_id: int):
+def candidate(candidate_id: int|None=None):
     result = functions.get_candidate(candidate_id)
     if result == "not_found":
         raise HTTPException(status_code=404, detail="Candidate not found")
@@ -28,7 +28,7 @@ def candidate(candidate_id: int):
 
 # E3
 @app.post("/candidates")
-def nominate(roll_no: str, name: str, position: str, manifesto: str):
+def nominate(roll_no: str, name: str, position: str, manifesto:str):
     if position not in functions.POSITIONS:
         raise HTTPException(status_code=422, detail="Invalid position")
     if len(manifesto) < 30:

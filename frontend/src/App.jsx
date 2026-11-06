@@ -28,7 +28,6 @@ setPhase(data.phase);
       }
     }
   })
-  .catch(() => setMessage("Cannot connect to the server"));
 
 fetch(API_URL + "/candidates")  // gets the data for all candidates
   .then((res) => res.json())
@@ -39,8 +38,6 @@ fetch(API_URL + "/candidates")  // gets the data for all candidates
       setMessage(data.detail);
     }
   })
-  .catch(() => setMessage("Cannot connect to the server"));
-
 }
 
 useEffect(() => {loadAll();
