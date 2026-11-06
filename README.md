@@ -22,7 +22,7 @@ Student council elections in many colleges are still run with paper forms, sprea
 | Database | SQLite (`election.db`)      |
 | Frontend | React                       |
 
-## 1. Who is doing what?
+## Who is doing what?
 
 | Day   | Partner  | What will you do?                                     | Completed? | What are you going to work on next? | Stuck on? |
 | ----- | -------- | ----------------------------------------------------- | ---------- | ----------------------------------- | --------- |
@@ -53,21 +53,22 @@ Student council elections in many colleges are still run with paper forms, sprea
 |E10 get   |✅ |✅ | ✅|Thanmayee|
 
 ## Frontend tracker
-| Part (from section 5 of your PRD) |	Shows the data |	Buttons work|	Shows API errors|	Who |
-| --------------------------------- | -------------- |  ----------------------------- | --- |
-| Nominate |	✅|	✅|	✅| Lakshya |
-| Vote	| ✅|	✅|	✅|	Poojitha |
-| Officer	| ✅|	✅|✅|	Thanmayee |
 
-How to run our app
+| components files |	Shows the data |	Buttons work|	Shows API errors|	Who |
+| ---------------  | -------------- |  ----------------------------- | --- |
+| Nominate         |✅|	✅|	✅| Lakshya |
+| Vote	           | ✅|	✅|✅|	Poojitha |
+| Officer	         | ✅|	✅|✅|	Thanmayee |
 
-Backend
+## How to run our app
+
+Backend:
 
 cd backend
 uvicorn main:app --reload --port 8001
 open http://127.0.0.1:8001/docs in the browser
 
-Frontend
+Frontend:
 
 cd frontend
 npm run dev
