@@ -36,23 +36,38 @@ Student council elections in many colleges are still run with paper forms, sprea
 | Day 3 | lakshya  |  worked on nominate and app.jsx file                         |  yes         |   testing frontend                  |   no        |
 | Day 3 | poojitha  |  worked on vote.jsx                |   yes       |     testing frontend                |   no       |
 
-Endpoint tracker
-Fill in the method and path from your PRD's endpoint table. Status: ✅ done · 🟡 in progress · ⬜ not started
 
-#	Method | path	Built	Rules checked in /docs |	Connected to React	| Who
-E1	get  |	✅	|✅|	✅	Thanmayee
-E2	post |	✅	|✅|	✅	Thanmayee
-E3	get	| ✅	|✅|	✅	Thanmayee
-E4	patch	|✅|	✅|	✅	Thanmayee
-E5	patch	| ✅|	✅	✅	Poojitha
-E6	get	|✅	|✅	|✅	Poojitha
-E7	patch|	✅|	✅	|✅|	Poojitha
-E8  post |
-E9  get|
-E10 get|
+## Endpoint tracker
 
-3. Frontend tracker
-Part (from section 5 of your PRD) |	Shows the data |	Buttons work|	Shows API errors|	Who
-Equipment |	✅|	✅|	✅|	Poojitha
-My bookings	| ✅|	✅|	✅|	Thanmayee
-Add equipment	| ✅|	✅|	✅|	Thanmayee
+|#	Method | path	Built	Rules checked in /docs |	Connected to React	| Who |
+| -------- | --------------------------------- |  ------------------- | --- |
+|E1	get    |✅	|✅ |	✅|Poojitha |
+|E2	post   |✅ |✅ |	✅|Poojitha |
+|E3	get	   |✅	|✅ |	✅|Poojitha |
+|E4	patch	 |✅ |✅ |	✅|Lakshya  |
+|E5	patch	 |✅ |✅ |	✅|Lakshya  |
+|E6	get  	 |✅ |✅	| ✅|Lakshya  |
+|E7	patch  |✅ |✅	| ✅|Thanmayee|
+|E8  post  |✅ |✅ | ✅|Thanmayee|
+|E9  get   |✅ |✅ | ✅|Thanmayee|
+|E10 get   |✅ |✅ | ✅|Thanmayee|
+
+## Frontend tracker
+| Part (from section 5 of your PRD) |	Shows the data |	Buttons work|	Shows API errors|	Who |
+| --------------------------------- | -------------- |  ----------------------------- | --- |
+| Nominate |	✅|	✅|	✅| Lakshya |
+| Vote	| ✅|	✅|	✅|	Poojitha |
+| Officer	| ✅|	✅|✅|	Thanmayee |
+
+How to run our app
+
+Backend
+
+cd backend
+uvicorn main:app --reload --port 8001
+open http://127.0.0.1:8001/docs in the browser
+
+Frontend
+
+cd frontend
+npm run dev
