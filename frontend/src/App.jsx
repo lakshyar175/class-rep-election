@@ -29,7 +29,6 @@ setPhase(data.phase);
       }
     }
   })
-  .catch(() => setMessage("Cannot connect to the server"));
 
 fetch(API_URL + "/candidates")
   .then((res) => res.json())
@@ -40,7 +39,6 @@ fetch(API_URL + "/candidates")
       setCandidates(data);
     }
   })
-  .catch(() => setMessage("Cannot connect to the server"));
 
 }
 
