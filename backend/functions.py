@@ -24,7 +24,7 @@ class Votes(Base):
     position = Column(String)
     candidate_id = Column(Integer)
     voter_roll = Column(String)
-    voted_on = Column("voded_on", DateTime, default=datetime.now)
+    voted_on = Column("voted_on", DateTime, default=datetime.now)
 
 
 class Election(Base):
